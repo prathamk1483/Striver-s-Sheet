@@ -1,4 +1,4 @@
-# Striver's SDE Sheet Solutions
+# Striver's A-Z + SDE Sheet Solutions
 
 ![Striver's SDE Sheet](https://img.shields.io/badge/Striver-SDE%20Sheet-red)
 
@@ -8,8 +8,6 @@ Welcome to the comprehensive repository for **Striver's SDE Sheet Solutions**! ð
 
 - [About](#about)
 - [Getting Started](#getting-started)
-- [Solutions](#solutions)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
