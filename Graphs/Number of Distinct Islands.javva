@@ -1,0 +1,43 @@
+class Solution {
+    void dfs(int br, int bc, int[][] grid, boolean[][] visited, int r, int c, ArrayList<int[]> ans) {
+        visited[r][c] = true;
+        int[] temp = {r - br, c - bc}; // Store relative position
+        ans.add(temp);
+
+        int[] drows = {-1, 0, 1, 0};
+        int[] dcols = {0, 1, 0, -1};
+
+        for (int i = 0; i < 4; i++) {
+            int rows = r + drows[i];
+            int cols = c + dcols[i];
+
+            if (rows >= 0 && rows < grid.length && cols >= 0 && cols < grid[0].length &&
+                !visited[rows][cols] && grid[rows][cols] == 1) {
+                dfs(br, bc, grid, visited, rows, cols, ans);
+            }
+        }
+    }
+
+    int countDistinctIslands(int[][] grid) {
+        int n = grid.length, m = grid[0].length;
+        boolean[][] visited = new boolean[n][m];
+        Set<String> uniqueIslands = new HashSet<>();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (!visited[i][j] && grid[i][j] == 1) {
+                    ArrayList<int[]> ans = new ArrayList<>();
+                    dfs(i, j, grid, visited, i, j, ans);
+
+                    StringBuilder shape = new StringBuilder();
+                    for (int[] coord : ans) {
+                        shape.append(coord[0]).append(",").append(coord[1]).append(";");
+                    }
+                    uniqueIslands.add(shape.toString());
+                }
+            }
+        }
+
+        return uniqueIslands.size();
+    }
+}
